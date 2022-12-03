@@ -1,0 +1,23 @@
+.navbar {
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    background-color: #147B88;
+    border-bottom: 1px solid;
+    padding-top: 30px
+
+    
+  }
+
+  .navbar a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 20px;
+    font-family: 'open-sans', sans-serif;
+    font-weight: bold;
+
+  }
+  .navbar a:hover {
+    color: #3a438f;
+
+  }

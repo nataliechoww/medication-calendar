@@ -1,0 +1,46 @@
+body{
+    background-color: #E5F3F2;
+}
+
+.titlesection{
+    padding: 50px;
+    padding-top: 180px;
+    display: flex;
+}
+.title {
+    font-family: "open-sans", serif;
+    color: #117986;
+  
+}
+
+.title h1 {
+    font-size: 25px;
+    font-family: "open-sans", serif;
+    color: #117986;
+
+}
+
+.title h2{
+    font-size: 75px;
+    font-family: "open-sans", serif;
+    color: #117986;
+}
+
+
+.title h3{
+    font-size: 20px;
+    font-family: "open-sans", serif;
+    color: #117986;
+}
+
+#homeimage {
+    float: right;
+    clear: right;
+}
+
+
+
+
+
+
+
