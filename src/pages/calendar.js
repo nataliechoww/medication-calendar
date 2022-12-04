@@ -13,11 +13,6 @@ let input2 = "";
 let input3 = "";
 let input4 = "";
 let days = [];
-let monmorning = '';
-let monnight = '';
-let monnoon = '';
-let monsunset = '';
-let monwhenever = '';
 let v = "";
 
 
@@ -25,13 +20,11 @@ let v = "";
 function send(){
     console.log('clicked')
     input1 = document.getElementById('medication').value;
-    input3 = document.getElementById('timetaken').value;
+    //input3 = document.getElementById('timetaken').value;
     input4 = document.getElementById('dosage').value;
     for(let i = 1; i<=7; i++){
         
         if(days[i] === true) {
-                document.getElementsByClassName(days[i]).innerHTML = input1;
-                days[i] = document.getElementsByClassName('button'+i).innerHTML;
                 if(i===1) {
                     v='Monday';
                 }
@@ -39,7 +32,7 @@ function send(){
                     v='Tuesday';
                 }
                 if(i===3) {
-                    v='Wednesday ';
+                    v='Wednesday';
                 }
                 if(i===4) {
                     v='Thursday';
@@ -53,21 +46,38 @@ function send(){
                 if(i===7) {
                     v='Sunday';
                 }
-                document.getElementById(v).innerHTML = input1;
+                console.log(v);
+                document.getElementById(v).innerHTML = input1 + ' ' + input4;
+                console.log(document.getElementById(v).innerHTML);
                 
             }
             else {
                 days[i] = '0';
             }
         }
-        
-    
-    document.getElementById('Monday').innerHTML = input1 + ' ' + input4;
-    document.getElementById('Tuesday').innerHTML = input1 + ' ' + input4;
 
-         
-     
-    
+}
+
+function setdays1() {
+    days[1] = true;
+}
+function setdays2() {
+    days[2] = true;
+}
+function setdays3() {
+    days[3] = true;
+}
+function setdays4() {
+    days[4] = true;
+}
+function setdays5() {
+    days[5] = true;
+}
+function setdays6() {
+    days[6] = true;
+}
+function setdays7() {
+    days[7] = true;
 }
 
 function Calendar()
@@ -83,15 +93,25 @@ function Calendar()
             <p> Name: </p>
             <input type="text" id="medication"/>
             <p> Days taken: </p>
-            <button className = "button1" onClick={ days[1]=true }> Monday </button>
-            <button className = "button2"> Tuesday </button>
-            <button className = "button3"> Wednesday</button>
-            <button className = "button4"> Thursday</button>
-            <button className = "button5"> Friday</button>
-            <button className = "button6"> Saturday</button>
-            <button className = "button7"> Sunday</button>
-            <p> Times taken: </p>
-            <input type="text" id="timetaken"/>
+            <button className = "button1" onClick={setdays1}> Monday </button>
+            <button className = "button2" onClick={setdays2}> Tuesday </button>
+            <button className = "button3" onClick={setdays3}> Wednesday</button>
+            <button className = "button4" onClick={setdays4}> Thursday</button>
+            <button className = "button5" onClick={setdays5}> Friday</button>
+            <button className = "button6" onClick={setdays6}> Saturday</button>
+            <button className = "button7" onClick={setdays7}> Sunday</button>
+            <p> Times Taken: </p>
+            <div class="dropdown">
+                <button class="dropbtn">Times Taken</button>
+                <div class="dropdown-content">
+                    <a href="#"> Morning </a>
+                    <a href="#"> Noon </a>
+                    <a href="#"> Evening </a>
+                    <a href="#"> Night </a>
+                    <a href="#"> Whenever You Want </a>
+                </div>
+
+            </div>
             <p> Dosage: </p>
             <input type="text" id="dosage"/>
             <br></br>
@@ -120,54 +140,59 @@ function Calendar()
             </tr>
             <tr>
             <th><img src={sunrise} id="sunrise" />  </th>
-                <td id='Monday'> {input1 + input4} </td>
-                <td> {input1 + ' ' + input4} </td>
-                <td>Memantine (10mg) </td>
+                <td id='Monday'> {input1 + ' ' + input4} </td>
                 <td id='Tuesday'> {input1 + ' ' + input4} </td>
-                <td></td>
-                <td>Tylenol</td>
-                <td></td>
+                <td id='Wednesday'> {input1 + ' ' + input4} </td>
+                <td id='Thursday'> {input1 + ' ' + input4} </td>
+                <td id='Friday'> {input1 + ' ' + input4} </td>
+                <td id='Saturday'> {input1 + ' ' + input4} </td>
+                <td id='Sunday'> {input1 + ' ' + input4} </td>
+              
             </tr>
             <tr>
             <th><img src={noon} id="noon"/>  </th>
-                <td> {input1} </td>
-                <td>Famotidine(20 mg)</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id='Monday'> {input1 + ' ' + input4} </td>
+                <td id='Tuesday'> {input1 + ' ' + input4} </td>
+                <td id='Wednesday'> {input1 + ' ' + input4} </td>
+                <td id='Thursday'> {input1 + ' ' + input4} </td>
+                <td id='Friday'> {input1 + ' ' + input4} </td>
+                <td id='Saturday'> {input1 + ' ' + input4} </td>
+                <td id='Sunday'> {input1 + ' ' + input4} </td>
+              
                 
             </tr>
             <tr>
             <th><img src={sunset} id="sunset"/>  </th>
-                <td> {input1} </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Famotidine (20 mg)</td>
-                <td></td>
-                <td></td>
+                <td id='Monday'> {input1 + ' ' + input4} </td>
+                <td id='Tuesday'> {input1 + ' ' + input4} </td>
+                <td id='Wednesday'> {input1 + ' ' + input4} </td>
+                <td id='Thursday'> {input1 + ' ' + input4} </td>
+                <td id='Friday'> {input1 + ' ' + input4} </td>
+                <td id='Saturday'> {input1 + ' ' + input4} </td>
+                <td id='Sunday'> {input1 + ' ' + input4} </td>
+              
             </tr>
             <tr>
             <th><img src={night} id="night"/> </th>
-                <td> {input1} </td>
-                <td></td>
-                <td>Valium (5 mg)</td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td> </td>
+                <td id='Monday'> {input1 + ' ' + input4} </td>
+                <td id='Tuesday'> {input1 + ' ' + input4} </td>
+                <td id='Wednesday'> {input1 + ' ' + input4} </td>
+                <td id='Thursday'> {input1 + ' ' + input4} </td>
+                <td id='Friday'> {input1 + ' ' + input4} </td>
+                <td id='Saturday'> {input1 + ' ' + input4} </td>
+                <td id='Sunday'> {input1 + ' ' + input4} </td>
+              
             </tr>
             <tr>
             <th><img src={wheneveryouwant} id="wheneveryouwant"/> </th>
-                <td> {input1} </td>
-                <td>Vitamin D3</td>
-                <td>Vitamin D3</td>
-                <td>Vitamin D3</td>
-                <td>Vitamin D3 </td>
-                <td>Vitamin D3</td>
-                <td>Vitamin D3</td>
+                <td id='Monday'> {input1 + ' ' + input4} </td>
+                <td id='Tuesday'> {input1 + ' ' + input4} </td>
+                <td id='Wednesday'> {input1 + ' ' + input4} </td>
+                <td id='Thursday'> {input1 + ' ' + input4} </td>
+                <td id='Friday'> {input1 + ' ' + input4} </td>
+                <td id='Saturday'> {input1 + ' ' + input4} </td>
+                <td id='Sunday'> {input1 + ' ' + input4} </td>
+              
             </tr>
             
 
