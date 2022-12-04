@@ -1,12 +1,11 @@
 import '../styles/addmedication.css'
 import React from 'react'
 
-export {input1, input2, input3, input4};
-
 let input1 = "";
 let input2 = "";
 let input3 = "";
 let input4 = "";
+let days = [];
 function Addmedication() 
 {
     return (
@@ -35,20 +34,20 @@ function Addmedication()
             <input type="text" id="dosage"/>
             <br></br>
             <center> 
-            <button className = "button" type="submit" onClick={send}>Enter</button> 
+            <button className = "button" type="button" onClick={send}>Enter</button> 
             </center>
            
         </div>
         </>
     )
 }
+
 function send(){
     
     input1 = document.getElementById('medication').value;
     input2 = document.getElementById('timetakenaday').innerHTML;
     input3 = document.getElementById('timetaken').innerHTML;
     input4 = document.getElementById('dosage').innerHTML;
-    const days = [];
          for(let i = 1; i<=7; i++){
             if(document.getElementsByClassName('button'+i).onClick === true) {
                 days[i] = i;
@@ -57,6 +56,10 @@ function send(){
                 days[i] = 0;
             }
         }      
+    
 }
+
+export {input1, input2, input3, input4, days};
+
 
 export default Addmedication;
