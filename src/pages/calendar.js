@@ -9,19 +9,39 @@ import wheneveryouwant from '../images/wheneveryouwant.png'
 import { useState } from 'react'
 
 var input1 = "";
-let input2 = "";
-let input3 = "";
 let input4 = "";
 let days = [];
 let v = "";
+let times = [];
+let k = "";
 
 
 
 function send(){
-    console.log('clicked')
+
     input1 = document.getElementById('medication').value;
-    //input3 = document.getElementById('timetaken').value;
     input4 = document.getElementById('dosage').value;
+
+    for(let i = 1; i<=5; i++) {
+        if(times[i] === true) {
+            if(i===1) {
+                k='Morning'
+            }
+            if(i===2) {
+                k='Noon'
+            }
+            if(i===3) {
+                k='Evening'
+            }
+            if(i===4) {
+                k='Night'
+            }
+            if(i===5) {
+                k='Whenever'
+            }
+        }
+    }
+    
     for(let i = 1; i<=7; i++){
         
         if(days[i] === true) {
@@ -46,13 +66,8 @@ function send(){
                 if(i===7) {
                     v='Sunday';
                 }
-                console.log(v);
-                document.getElementById(v).innerHTML = input1 + ' ' + input4;
+                document.getElementById(v+k).innerHTML = input1 + ' ' + input4;
                 console.log(document.getElementById(v).innerHTML);
-                
-            }
-            else {
-                days[i] = '0';
             }
         }
 
@@ -80,6 +95,21 @@ function setdays7() {
     days[7] = true;
 }
 
+function dropdown1() {
+    times[1] = true;
+}
+function dropdown2() {
+    times[2] = true;
+}
+function dropdown3() {
+    times[3] = true;
+}
+function dropdown4() {
+    times[4] = true;
+}
+function dropdown5() {
+    times[5] = true;
+}
 function Calendar()
 {
     return (
@@ -100,15 +130,16 @@ function Calendar()
             <button className = "button5" onClick={setdays5}> Friday</button>
             <button className = "button6" onClick={setdays6}> Saturday</button>
             <button className = "button7" onClick={setdays7}> Sunday</button>
+            
             <p> Times Taken: </p>
             <div class="dropdown">
                 <button class="dropbtn">Times Taken</button>
                 <div class="dropdown-content">
-                    <a href="#"> Morning </a>
-                    <a href="#"> Noon </a>
-                    <a href="#"> Evening </a>
-                    <a href="#"> Night </a>
-                    <a href="#"> Whenever You Want </a>
+                    <a href="#" onClick={dropdown1}> Morning </a>
+                    <a href="#" onClick={dropdown2}> Noon </a>
+                    <a href="#" onClick={dropdown3}> Evening </a>
+                    <a href="#" onClick={dropdown4}> Night </a>
+                    <a href="#" onClick={dropdown5}> Whenever You Want </a>
                 </div>
 
             </div>
@@ -150,48 +181,48 @@ function Calendar()
               
             </tr>
             <tr>
-            <th><img src={noon} id="noon"/>  </th>
-                <td id='Monday'> {input1 + ' ' + input4} </td>
-                <td id='Tuesday'> {input1 + ' ' + input4} </td>
-                <td id='Wednesday'> {input1 + ' ' + input4} </td>
-                <td id='Thursday'> {input1 + ' ' + input4} </td>
-                <td id='Friday'> {input1 + ' ' + input4} </td>
-                <td id='Saturday'> {input1 + ' ' + input4} </td>
-                <td id='Sunday'> {input1 + ' ' + input4} </td>
+            <th id><img src={noon} id="noon"/>  </th>
+                <td id='MondayNoon'> {input1 + ' ' + input4} </td>
+                <td id='TuesdayNoon'> {input1 + ' ' + input4} </td>
+                <td id='WednesdayNoon'> {input1 + ' ' + input4} </td>
+                <td id='ThursdayNoon'> {input1 + ' ' + input4} </td>
+                <td id='FridayNoon'> {input1 + ' ' + input4} </td>
+                <td id='SaturdayNoon'> {input1 + ' ' + input4} </td>
+                <td id='SundayNoon'> {input1 + ' ' + input4} </td>
               
                 
             </tr>
             <tr>
             <th><img src={sunset} id="sunset"/>  </th>
-                <td id='Monday'> {input1 + ' ' + input4} </td>
-                <td id='Tuesday'> {input1 + ' ' + input4} </td>
-                <td id='Wednesday'> {input1 + ' ' + input4} </td>
-                <td id='Thursday'> {input1 + ' ' + input4} </td>
-                <td id='Friday'> {input1 + ' ' + input4} </td>
-                <td id='Saturday'> {input1 + ' ' + input4} </td>
-                <td id='Sunday'> {input1 + ' ' + input4} </td>
+                <td id='MondayEvening'> {input1 + ' ' + input4} </td>
+                <td id='TuesdayEvening'> {input1 + ' ' + input4} </td>
+                <td id='WednesdayEvening'> {input1 + ' ' + input4} </td>
+                <td id='ThursdayEvening'> {input1 + ' ' + input4} </td>
+                <td id='FridayEvening'> {input1 + ' ' + input4} </td>
+                <td id='SaturdayEvening'> {input1 + ' ' + input4} </td>
+                <td id='SundayEvening'> {input1 + ' ' + input4} </td>
               
             </tr>
             <tr>
             <th><img src={night} id="night"/> </th>
-                <td id='Monday'> {input1 + ' ' + input4} </td>
-                <td id='Tuesday'> {input1 + ' ' + input4} </td>
-                <td id='Wednesday'> {input1 + ' ' + input4} </td>
-                <td id='Thursday'> {input1 + ' ' + input4} </td>
-                <td id='Friday'> {input1 + ' ' + input4} </td>
-                <td id='Saturday'> {input1 + ' ' + input4} </td>
-                <td id='Sunday'> {input1 + ' ' + input4} </td>
+                <td id='MondayNight'> {input1 + ' ' + input4} </td>
+                <td id='TuesdayNight'> {input1 + ' ' + input4} </td>
+                <td id='WednesdayNight'> {input1 + ' ' + input4} </td>
+                <td id='ThursdayNight'> {input1 + ' ' + input4} </td>
+                <td id='FridayNight'> {input1 + ' ' + input4} </td>
+                <td id='SaturdayNight'> {input1 + ' ' + input4} </td>
+                <td id='SundayNight'> {input1 + ' ' + input4} </td>
               
             </tr>
             <tr>
             <th><img src={wheneveryouwant} id="wheneveryouwant"/> </th>
-                <td id='Monday'> {input1 + ' ' + input4} </td>
-                <td id='Tuesday'> {input1 + ' ' + input4} </td>
-                <td id='Wednesday'> {input1 + ' ' + input4} </td>
-                <td id='Thursday'> {input1 + ' ' + input4} </td>
-                <td id='Friday'> {input1 + ' ' + input4} </td>
-                <td id='Saturday'> {input1 + ' ' + input4} </td>
-                <td id='Sunday'> {input1 + ' ' + input4} </td>
+                <td id='MondayWhenever'> {input1 + ' ' + input4} </td>
+                <td id='TuesdayWhenever'> {input1 + ' ' + input4} </td>
+                <td id='WednesdayWhenever'> {input1 + ' ' + input4} </td>
+                <td id='ThursdayWhenever'> {input1 + ' ' + input4} </td>
+                <td id='FridayWhenever'> {input1 + ' ' + input4} </td>
+                <td id='SaturdayWhenever'> {input1 + ' ' + input4} </td>
+                <td id='SundayWhenever'> {input1 + ' ' + input4} </td>
               
             </tr>
             
